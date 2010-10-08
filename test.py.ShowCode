@@ -1,0 +1,15 @@
+
+def runLoop():
+    print 'def runLoop():'
+    number = 0
+    print '    number = 0'
+
+
+    for i in range(0, 10):
+        print '    for i in range(0, 10):'
+        number = number + i
+        print '        number = number + i'
+
+
+runLoop()
+print 'runLoop()'
