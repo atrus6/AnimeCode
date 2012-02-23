@@ -6,9 +6,9 @@ def startPython(name):
     java(work, output)
 
 def java_count_braces(line, current_amount):
-  if line.find('{'):
+  if line.find('{') != -1:
     current_amount = current_amount + 1
-  elif line.find('}'):
+  elif line.find('}') != -1:
     current_amount = current_amount - 1
 
   return current_amount
