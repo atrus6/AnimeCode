@@ -2,6 +2,16 @@ def startPython(name):
   work = open(name, 'r')
   output = open(name + '.ShowCode', 'w')
 
+  if name.endswith('.java'):
+    java(work, output)
+
+def java_count_braces(line, current_amount):
+  if line.find('{'):
+    current_amount = current_amount + 1
+  elif line.find('}'):
+    current_amount = current_amount - 1
+
+  return current_amount
 
 def java(input_file, output_file):
 
@@ -11,19 +21,24 @@ def java(input_file, output_file):
   num_opens = 0;
 
   for line in input_file:
-    if num_opens < 2:
-      buf += line + '\\n'
-      if line.find('{'):
-        num_opens += 1
-      elif line.find('}')
-        num_opens -= 1
-    else
+    output_file.write(line) #Obviously we need to write every line.
+
+    num_opens = java_count_braces(line, num_opens)
+
+    buf = line + '\\n'
+
+    if num_opens > 1:
+      #Check to see if we have entered in a comment.
+      if line.find('/*') != -1:
+        in_comment = True
+
       if not in_comment:
-        output.write('System.out.println("' + buf + '");')
+        output_file.write('System.out.println("' + buf + '");')
+        buf = ''
       else:
         #Check to see if we are still in a comment.
         if line.find('*/') > -1: #Not in comment.
           in_comment = False
 
 
-startPython('test.py')
+startPython('Voronoi.java')
