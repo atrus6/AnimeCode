@@ -33,7 +33,7 @@ def java(input_file, output_file):
         in_comment = True
 
       if not in_comment:
-        output_file.write('System.out.println("' + buf + '");')
+        output_file.write('System.out.println("' + buf + '");' + '\n')
         buf = ''
       else:
         #Check to see if we are still in a comment.
