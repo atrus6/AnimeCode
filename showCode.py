@@ -25,7 +25,7 @@ def java(input_file, output_file):
 
     num_opens = java_count_braces(line, num_opens)
 
-    buf = line.rstrip() + '\\n'
+    buf = buf + line.rstrip() + '\\n'
 
     if num_opens > 1:
       #Check to see if we have entered in a comment.
